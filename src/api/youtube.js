@@ -14,7 +14,7 @@ class YoutubeApi {
      */
     getList(searchTerm) {
         const searchEncoded = encodeURIComponent(searchTerm);
-        let url = `${this.baseUrl}/search?part=snippet&q=${searchEncoded}&type=video&key=${this.API_KEY}`;
+        let url = `${this.baseUrl}/search?part=snippet&q=${searchEncoded}&maxResults=10&type=video&key=${this.API_KEY}`;
         return fetch(url)
             .then(response => response.json())
             .then(data => data.items);

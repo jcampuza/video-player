@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import YoutubeApi from '../api/youtube';
+import _ from 'lodash';
+
+// import YoutubeApi from '../api/youtube';
+
 
 class SearchBar extends Component {
 
@@ -19,6 +22,7 @@ class SearchBar extends Component {
         this.setState((prevState, props) => ({
             term: value
         }));
+        this.props.onSearchTermChanged(value);
     }
 
     handleButtonClick(e) {
@@ -27,15 +31,13 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <div className="field has-addons searchbar">
-                <p className="control is-expanded">
+            <div className="SearchBar">
+                <p className="SearchBar__input">
                     <input
                         className="input is-medium is-fullwidth" 
                         value={this.state.term} 
                         onChange={this.handleInputChange} 
                     />
-                </p>
-                <p className="control">
                     <button className="button is-medium is-dark" onClick={this.handleButtonClick}>Get Videos</button>
                 </p>
             </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
+import _ from 'lodash';
 
 import SearchBar from './SearchBar';
 import VideoList from './VideoList';
@@ -38,15 +39,17 @@ class App extends Component {
   }
 
   render() {
+    const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 400);
+
     return (
-      <div className="section">
+      <div className="App">
         <div className="container">
-          <SearchBar onSearchTermChanged={term => this.videoSearch(term)}></SearchBar>
-          <div className="columns">
-            <VideoDetail video={this.state.selectedVideo}></VideoDetail>
+          <SearchBar onSearchTermChanged={videoSearch} />
+          <div className="main">
             <VideoList 
               onVideoSelect={video => this.setState({selectedVideo: video})}
               videos={this.state.videos} />
+            <VideoDetail video={this.state.selectedVideo} />
           </div>
         </div>
       </div>

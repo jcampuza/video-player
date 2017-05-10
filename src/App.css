@@ -1,5 +1,140 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  align-self: center;
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  align-items: flex-start;
+}
+
+.SearchBar {
+  background-color: #101010;
+  border-bottom: 1px solid #727272;
+  padding: 1.5em;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+}
+
+.SearchBar__header {
+  font-size: 1.2em;
+}
+
+.SearchBar__input {
+  margin: 0 auto;
+  display: flex;
+  max-width: 600px;
+  flex: 1;
+}
+
+.SearchBar__input input {
+  background-color: #2b2b2b;
+  border: 1px solid #666666;
+  border-right: none;
+  border-radius: 1px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  color: #efefef;
+  padding: 5px 10px;
+  outline: none;
+  flex: 1;
+  font: inherit;
+}
+
+.SearchBar__input button {
+  padding: 0 10px;
+  background-color: #cccccc;
+  border: 1px solid #666666;
+  border-radius: 1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.VideoList {
+  flex: 0 0 30%;
+  background-color: #171717;
+  margin: 0;
+  height: 100%;
+  border-right: 1px solid #000000;
+}
+
+.VideoList .media {
+  display: flex;
+}
+
+.VideoList .media:not(:last-child) {
+  border-bottom: 1px solid #333333;
+}
+
+.VideoList .media .media-left {
+  flex: 0 1 auto;
+}
+
+.VideoList .media .media-left img {
+  min-height: 100%;
+}
+
+.VideoList .media .media-content {
+  flex: 1 0 0%;
+  padding: 10px;
+  text-align: left;
+}
+
+.VideoList .media .media-content--title {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.media-content--title + .media-content--subtitle {
+  margin-top: 5px;
+  font-size: .95em;
+  color: #bbbbbb;
+}
+
+.VideoDetail {
+  flex: 0 0 65%;
+  margin: 0 auto;
+}
+
+.VideoDetail__container {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+  margin-bottom: 1em;
+}
+
+.VideoDetail__container iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.VideoDetail__description {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.VideoDetail__description--title {
+  font-size: 1.3em;
+  margin-bottom: .5em;
+}
+
+.VideoDetail__description--desc {
+  font-size: 1.1em;
 }
 
 .App-logo {
