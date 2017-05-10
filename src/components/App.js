@@ -21,12 +21,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    YoutubeApi.getList(this.state.searchTerm).then((videos) => {
-      this.setState({ 
-        videos, 
-        selectedVideo: videos[0] 
-      })
-    });
+    this.videoSearch(this.state.searchTerm);
   }
 
   videoSearch(term) {
